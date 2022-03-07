@@ -15,9 +15,7 @@ RUN go mod download
 # Copy the sources
 COPY ./ ./
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
-    go build -a -ldflags '-extldflags "-static"' \
-    -o ensure-tfenv-versions .
+RUN make build OS=linux ARCH=amd64
 
 # Copy the action into a thin image
 FROM gcr.io/distroless/static:latest

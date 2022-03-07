@@ -1,0 +1,17 @@
+name: Ensure Terraform Versions Installed with TFEnv
+author: Joshua Feierman
+description: |
+  Walks a filesystem path and installs all versions of Terraform requested 
+  by [tfenv](https://github.com/tfutils/tfenv) in the form of `.terraform-version` files.
+inputs:
+  root-directory:
+    default: "/github/workspace/"
+    description: The base directory at which to start walking the filesystem and find .terraform-verion files.
+    required: false
+runs:
+  using: docker
+  image: Dockerfile
+#  using: docker
+#  image: docker://ghcr.io/the-gophers/go-action:1.0.0
+  args:
+    - -d "${{ inputs.root-directory }}"

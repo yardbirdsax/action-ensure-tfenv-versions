@@ -21,3 +21,5 @@ jobs:
         uses: dangoslen/changelog-enforcer@v3
       - name: Run tests
         run: make test
+      - name: Test Action
+        uses: ./

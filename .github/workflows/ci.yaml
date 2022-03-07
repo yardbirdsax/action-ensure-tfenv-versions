@@ -1,0 +1,23 @@
+name: Validate and Release
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  validate:
+    name: Validate build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Setup Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.17
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Ensure CHANGELOG is updated
+        uses: dangoslen/changelog-enforcer@v3
+      - name: Run tests
+        run: make test

@@ -1,2 +1,2 @@
-# action-ensure-tfenv-versions
-A GitHub Action that will recursively look for .terraform-version files and install the requested Terraform version using `tfenv`
+# ensure-tfenv-versions
+A tool written in Go that will recursively look for .terraform-version files and install the requested Terraform version using [`tfenv`](https://github.com/tfutils/tfenv).

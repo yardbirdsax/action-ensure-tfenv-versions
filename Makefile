@@ -1,6 +1,10 @@
 SOURCE = ./...
-OS = linux
-ARCH = amd64
+
+tidy:
+	go mod tidy
+
+generate:
+	go generate
 
 vet:
 	go vet $(SOURCE)
@@ -8,10 +12,8 @@ vet:
 test-fmt:
 	test -z $(shell go fmt $(SOURCE))
 
-test: vet test-fmt
-	go test -cover ./... -count 1
+test: generate vet test-fmt
+	go test -cover $(SOURCE) -count 1
 
 build:
-	CGO_ENABLED=0 GOOS=$(OS) GOARCH=$(ARCH) \
-    go build -a -ldflags '-extldflags "-static"' \
-    -o ensure-tfenv-versions .
+	go run github.com/goreleaser/goreleaser build --snapshot --rm-dist

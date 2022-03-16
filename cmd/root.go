@@ -22,12 +22,11 @@ var (
 	rootCmd       = &cobra.Command{
 		Use:   "ensure-tfenv-versions",
 		Short: "Ensures that required versions of Terraform are installed using the tfenv tool.",
-		Long:  ``,
+		Long: `This utility will recursively search under a specified directory for any '.terraform-version' files,
+and install the specified versions of Terraform. By default, it will look under the current shell directory.`,
 		// Uncomment the following line if your bare application
 		// has an action associated with it:
 		RunE:          runMe,
-		SilenceErrors: true,
-		SilenceUsage:  true,
 	}
 )
 

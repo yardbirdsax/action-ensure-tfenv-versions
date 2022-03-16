@@ -1,7 +1,3 @@
-/*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
-*/
 package cmd
 
 import (
@@ -26,7 +22,7 @@ var (
 and install the specified versions of Terraform. By default, it will look under the current shell directory.`,
 		// Uncomment the following line if your bare application
 		// has an action associated with it:
-		RunE:          runMe,
+		RunE: runMe,
 	}
 )
 

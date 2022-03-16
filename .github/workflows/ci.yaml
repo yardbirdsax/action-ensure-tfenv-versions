@@ -2,13 +2,20 @@ name: Validate and Release
 
 on:
   pull_request:
+    paths-ignore:
+      - "*.md"
+      - "LICENSE"
+      - ".gitignore"
   push:
     branches:
       - "main"
     tags:
       - "*"
+    paths-ignore:
+      - "*.md"
+      - "LICENSE"
+      - ".gitignore"
   workflow_dispatch:
-    
 
 jobs:
   validate_and_release:

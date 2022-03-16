@@ -17,3 +17,6 @@ test: generate vet test-fmt
 
 build:
 	go run github.com/goreleaser/goreleaser build --snapshot --rm-dist
+
+release:
+	go run github.com/goreleaser/goreleaser release --rm-dist

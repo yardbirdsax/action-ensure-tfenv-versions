@@ -61,7 +61,7 @@ func TestReadFiles(t *testing.T) {
 	}
 
 	actualContent, err := ReadFiles(fileNames)
-	assert.Equal(t, expectedContent, actualContent)
+	assert.ElementsMatch(t, expectedContent, actualContent)
 	assert.NoError(t, err)
 }
 

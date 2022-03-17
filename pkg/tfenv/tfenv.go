@@ -25,9 +25,6 @@ func GetUniqueVersions(versions []string) (uniqueVersions []string) {
 
 func isTFEnvVersionInstalledE(version string, exec exec.Exec) (isInstalled bool, err error) {
 
-	logger, _ := zap.NewProduction()
-	defer logger.Sync()
-
 	output, err := exec.ExecCommand("tfenv", false, "list")
 	if err != nil {
 		return

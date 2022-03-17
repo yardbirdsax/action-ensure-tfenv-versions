@@ -23,9 +23,9 @@ func (*Executor) ExecCommand(command string, writeToConsole bool, args ...string
 	stdOutWriters := []io.Writer{&buffer}
 	stdErrWriters := []io.Writer{&buffer}
 	if writeToConsole {
-		stdOutWriters = append(stdOutWriters, os.Stdout)
 		stdErrWriters = append(stdErrWriters, os.Stderr)
 	}
+	stdOutWriters = append(stdOutWriters, os.Stdout)
 	stdOutW := io.MultiWriter(stdOutWriters...)
 	stdErrW := io.MultiWriter(stdErrWriters...)
 

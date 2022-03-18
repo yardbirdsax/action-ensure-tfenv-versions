@@ -34,6 +34,14 @@ jobs:
         uses: dangoslen/changelog-enforcer@v3
       - name: Run tests
         run: make test
+      - name: Install tfenv
+        shell: bash
+        run: |
+          git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+          echo "$HOME/.tfenv/bin" >> $GITHUB_PATH
+          $HOME/.tfenv/bin/tfenv install 1.0.0
+      - name: Run integration test
+        run: make integration-test
       - name: Run GoReleaser (release mode)
         uses: goreleaser/goreleaser-action@v2
         with:

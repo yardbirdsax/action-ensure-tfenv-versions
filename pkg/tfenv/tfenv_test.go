@@ -102,11 +102,7 @@ func TestInstallTFEnvVersion_Present(t *testing.T) {
 
 	version := "0.15.5"
 
-	mockExec.EXPECT().ExecCommand("tfenv", false, "list").Times(1).Return(
-		version,
-		nil,
-	)
-	mockExec.EXPECT().ExecCommand("tfenv", true, "install", version).Times(0).Return("", nil)
+	mockExec.EXPECT().ExecCommand("tfenv", true, "install", version).Times(1).Return("", nil)
 
 	err := installTFEnvVersion(version, mockExec)
 	assert.NoError(t, err)
@@ -120,10 +116,6 @@ func TestInstallTFEnvVersion_NotPresent(t *testing.T) {
 
 	version := "0.15.5"
 
-	mockExec.EXPECT().ExecCommand("tfenv", false, "list").Times(1).Return(
-		"",
-		nil,
-	)
 	mockExec.EXPECT().ExecCommand("tfenv", true, "install", version).Times(1).Return("", nil)
 
 	err := installTFEnvVersion(version, mockExec)

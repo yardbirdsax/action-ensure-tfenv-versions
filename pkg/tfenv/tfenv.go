@@ -61,17 +61,8 @@ func uninstallTFEnvVersion(version string, exec exec.Exec) (err error) {
 }
 
 func installTFEnvVersion(version string, exec exec.Exec) (err error) {
-	zap.S().Debugf("Checking if version '%s' is currently installed", version)
-	isInstalled, err := isTFEnvVersionInstalledE(version, exec)
-	if err != nil {
-		return
-	}
-	if !isInstalled {
-		zap.S().Infof("Installing Terraform version '%s'", version)
-		_, err = exec.ExecCommand("tfenv", true, "install", version)
-	} else {
-		zap.S().Debugf("Version '%s' is already installed", version)
-	}
+	zap.S().Infof("Installing Terraform version '%s'", version)
+	_, err = exec.ExecCommand("tfenv", true, "install", version)
 	return
 }
 

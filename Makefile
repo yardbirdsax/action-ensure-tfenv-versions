@@ -15,6 +15,9 @@ test-fmt:
 test: generate vet test-fmt
 	go test -cover $(SOURCE) -count 1
 
+integration-test: tidy generate
+	go run main.go -v
+
 build:
 	go run github.com/goreleaser/goreleaser build --snapshot --rm-dist
 

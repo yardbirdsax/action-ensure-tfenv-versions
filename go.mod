@@ -8,7 +8,7 @@ require (
 	github.com/spf13/afero v1.9.2
 	github.com/spf13/cobra v1.5.0
 	github.com/stretchr/testify v1.8.0
-	go.uber.org/zap v1.19.0
+	go.uber.org/zap v1.23.0
 
 )
 

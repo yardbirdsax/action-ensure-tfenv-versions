@@ -32,6 +32,8 @@ jobs:
           fetch-depth: 0
       - name: Ensure CHANGELOG is updated
         uses: dangoslen/changelog-enforcer@v3
+        with:
+          skipLabels: dependencies
       - name: Run tests
         run: make test
       - name: Install tfenv

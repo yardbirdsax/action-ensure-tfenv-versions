@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/golang/mock v1.6.0
 	github.com/goreleaser/goreleaser v1.6.1
-	github.com/spf13/afero v1.6.0
+	github.com/spf13/afero v1.9.2
 	github.com/spf13/cobra v1.3.0
 	github.com/stretchr/testify v1.8.0
 	go.uber.org/zap v1.19.0
